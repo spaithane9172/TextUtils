@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// import About from "./component/About";
+// import Contact from "./component/Contact";
+import Navbar from "./component/Navbar";
+import Textutil from "./component/Textutil";
+import { useState } from "react";
 
 function App() {
+  const [mode, setMode] = useState("light");
+  const changeMode = () => {
+    setMode(mode === "light" ? "dark" : "light");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar mode={mode} changeMode={changeMode} />
+      <Textutil mode={mode} />
+
+      {/* <About />
+      <Contact /> */}
+    </>
   );
 }
 
