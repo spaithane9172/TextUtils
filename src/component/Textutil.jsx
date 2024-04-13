@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import { useSpeechSynthesis } from "react-speech-kit";
 import PropTypes from "prop-types";
 
 export default function Textutil(props) {
@@ -49,10 +48,36 @@ export default function Textutil(props) {
     }
   };
 
-  const { speak } = useSpeechSynthesis();
+  const [isPause, setIsPause] = useState(false);
+  const [utterance, setUtterance] = useState(null);
+  useEffect(() => {
+    const synth = window.speechSynthesis;
+    const u = new SpeechSynthesisUtterance(text);
+
+    setUtterance(u);
+
+    return () => {
+      synth.cancel();
+    };
+  }, [text]);
+
   const readText = () => {
-    console.log(text);
-    speak({ text: text });
+    const synth = window.speechSynthesis;
+    if (isPause) synth.resume();
+
+    synth.speak(utterance);
+    setIsPause(false);
+  };
+
+  const stopReading = () => {
+    const synth = window.speechSynthesis;
+    synth.cancel();
+    setIsPause(false);
+  };
+  const pauseReading = () => {
+    const synth = window.speechSynthesis;
+    synth.pause();
+    setIsPause(true);
   };
   return (
     <div
@@ -162,6 +187,26 @@ export default function Textutil(props) {
           } px-[1rem] py-[0.3rem] rounded-md font-bold hover:bg-white hover:text-black hover:border-[1px] hover:border-black`}
         >
           Read
+        </button>
+        <button
+          onClick={stopReading}
+          className={`mb-[1rem] mx-[0.4rem] shadow-md shadow-black bg-${
+            mode === "light" ? "black" : "[#DDDDDD]"
+          } text-${
+            mode === "light" ? "white" : "black"
+          } px-[1rem] py-[0.3rem] rounded-md font-bold hover:bg-white hover:text-black hover:border-[1px] hover:border-black`}
+        >
+          Stop Reading
+        </button>
+        <button
+          onClick={pauseReading}
+          className={`mb-[1rem] mx-[0.4rem] shadow-md shadow-black bg-${
+            mode === "light" ? "black" : "[#DDDDDD]"
+          } text-${
+            mode === "light" ? "white" : "black"
+          } px-[1rem] py-[0.3rem] rounded-md font-bold hover:bg-white hover:text-black hover:border-[1px] hover:border-black`}
+        >
+          Pause Reading
         </button>
       </div>
 
