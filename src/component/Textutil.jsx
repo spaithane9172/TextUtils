@@ -83,7 +83,7 @@ export default function Textutil(props) {
     <div
       className={`px-[10vw] bg-${
         mode === "light" ? "white" : "[#222831]"
-      } h-[100vh]`}
+      } pb-[10vh]`}
     >
       <h1
         className={`text-2xl font-bold font-[Montserrat] py-[2vh] text-${
