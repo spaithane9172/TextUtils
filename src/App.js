@@ -1,8 +1,8 @@
-// import About from "./component/About";
-// import Contact from "./component/Contact";
+import About from "./component/About";
 import Navbar from "./component/Navbar";
 import Textutil from "./component/Textutil";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -10,13 +10,13 @@ function App() {
     setMode(mode === "light" ? "dark" : "light");
   };
   return (
-    <>
+    <BrowserRouter>
       <Navbar mode={mode} changeMode={changeMode} />
-      <Textutil mode={mode} />
-
-      {/* <About />
-      <Contact /> */}
-    </>
+      <Routes>
+        <Route exact path="/" element={<Textutil mode={mode} />} />
+        <Route exact path="/about" element={<About mode={mode} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
