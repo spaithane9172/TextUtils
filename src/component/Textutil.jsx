@@ -283,7 +283,7 @@ export default function Textutil(props) {
               disabled={text.length === 0}
               onClick={downloadTextFile}
             >
-              <i class="fa-solid fa-download"></i>
+              <i className="fa-solid fa-download"></i>
             </button>
           </div>
 
