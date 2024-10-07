@@ -7,10 +7,11 @@ export default function Navbar(props) {
   const menuToggle = () => {
     setIsMenuVisible(isMenuVisible ? false : true);
   };
+  const [isActive, setIsActive] = useState("/");
 
   return (
     <nav
-      className={`flex px-[5vw] sm:h-[10vh] h-[7vh] w-full bg-${
+      className={`fixed flex px-[5vw] sm:h-[10vh] h-[7vh] w-full bg-${
         props.mode === "light" ? "gray-400" : "black"
       } bg-clip-padding backdrop-filter backdrop-blur-sm ${
         props.mode === "light" ? "bg-opacity-10" : ""
@@ -24,7 +25,7 @@ export default function Navbar(props) {
             className="relative sm:h-[6vh] h-[4vh] mr-[1rem]"
           />
           <h1
-            className={` font-bold text-xl text-${
+            className={`lobster-regular font-bold text-[2rem] text-${
               props.mode === "light" ? "black" : "white"
             }`}
           >
@@ -41,19 +42,41 @@ export default function Navbar(props) {
         } lg:bg-transparent items-center border-[1px] border-black lg:border-0`}
       >
         <ul className="flex lg:flex-row flex-col  items-center">
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              setIsActive("/");
+            }}
+          >
             <li
-              className={`px-[1.5rem] py-[1.2rem] font-bold font-[Oswal] text-lg cursor-pointer hover:scale-105 text-${
+              className={`px-[1.5rem] py-[1.2rem] font-bold font-[Oswal] text-[1.3rem] cursor-pointer hover:scale-105 text-${
                 props.mode === "light" ? "black" : "white"
-              }`}
+              } yatra-one-regular ${
+                isActive === "/"
+                  ? `border-b-[2px] ${
+                      props.mode === "dark" ? "border-white" : "border-black"
+                    }`
+                  : ""
+              } `}
             >
               Home
             </li>
           </Link>
-          <Link to="/about">
+          <Link
+            to="/about"
+            onClick={() => {
+              setIsActive("about");
+            }}
+          >
             <li
-              className={`px-[1.5rem] py-[1.2rem] font-bold font-[Oswal] text-lg cursor-pointer hover:scale-105 text-${
+              className={`px-[1.5rem] py-[1.2rem] font-bold font-[Oswal] text-[1.3rem] cursor-pointer hover:scale-105 text-${
                 props.mode === "light" ? "black" : "white"
+              } yatra-one-regular ${
+                isActive === "about"
+                  ? `border-b-[2px] ${
+                      props.mode === "dark" ? "border-white" : "border-black"
+                    }`
+                  : ""
               }`}
             >
               About TextUtils

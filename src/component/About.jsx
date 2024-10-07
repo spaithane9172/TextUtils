@@ -3,11 +3,13 @@ import React from "react";
 export default function About(props) {
   return (
     <div
-      className={`px-[10vw] py-[5vh] bg-${
+      className={`pt-[3rem] md:pt-[7rem] px-[10vw] py-[5vh] bg-${
         props.mode === "light" ? "white" : "[#222831]"
       } text-${props.mode === "light" ? "black" : "white"} text-center`}
     >
-      <h1 className="font-bold text-3xl mb-[1.2rem]">About TextUtils</h1>
+      <h1 className="font-bold text-3xl mb-[1.2rem] days-one-regular">
+        About TextUtils
+      </h1>
       <p className="text-justify mb-[2rem]">
         Welcome to our dynamic React app, your ultimate text manipulation
         companion! Whether you prefer traditional typing or the convenience of
@@ -21,7 +23,7 @@ export default function About(props) {
         feature-packed app, designed to elevate your text-editing experience to
         new heights.
       </p>
-      <h1 className="font-bold text-2xl mb-[1.2rem] text-center">
+      <h1 className="font-bold text-2xl mb-[1.2rem] text-center days-one-regular">
         Features Of Textutils
       </h1>
       <div className=" flex flex-wrap w-[80vw] justify-center items-center mb-[5vh]">
