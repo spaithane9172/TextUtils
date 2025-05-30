@@ -1,4 +1,4 @@
-[⚠️ Suspicious Content] # 📝 TextUtils
+# 📝 TextUtils
 
 TextUtils is a simple and user-friendly web app that provides quick and efficient text manipulation tools. Whether you need to convert cases, clean up extra spaces, or count characters and words, TextUtils makes it fast and easy — right in your browser.
 
