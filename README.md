@@ -52,7 +52,7 @@ TextUtils is a simple and user-friendly web app that provides quick and efficien
 To run this project locally:
 
 ```bash
-git clone https://github.com/spaithane9172/text-utils.git
+git clone https://github.com/spaithane9172/TextUtils.git
 cd text-utils
 npm install
 npm start
