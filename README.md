@@ -19,8 +19,8 @@ TextUtils is a simple and user-friendly web app that provides quick and efficien
 
 ## 🛠️ Tech Stack
 
-- **React.js** – Frontend framework
-- **Tailwind CSS** – Utility-first styling
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)  
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 ---
 
